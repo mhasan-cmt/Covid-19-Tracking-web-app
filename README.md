@@ -1,1 +1,1 @@
-### Real time data around the world
+### data retrieved from api then processed and rendered to simple ui.
