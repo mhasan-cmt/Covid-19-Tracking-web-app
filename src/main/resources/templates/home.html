@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <title>Home</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css"
+          rel="stylesheet" integrity="sha384-F3w7mX95PdgyTmZZMECAngseQB83DfGTowi0iMjiWaeVhAn4FJkqJByhZMI3AhiU"
+          crossorigin="anonymous">
+<style>
+    .mContainer{
+        width:90vw;
+        margin:auto;
+    }
+</style>
+
+</head>
+<body style="background:url('https://th.bing.com/th/id/R.01863c1ed8614ac2b7de991664cd5271?rik=O%2fe%2fE7IXUxQ6Hg&pid=ImgRaw&r=0')">
+<div class="mContainer">
+<div class="bg-danger text-light p-5 text-center">
+<h1>Covid-19 current status tracking app</h1>
+<h4>real time data around the world.</h4>
+</div>
+    <div class="bg-dark text-warning p-5 rounded-lg">
+        <h1 th:text="${totalCases}" class="display-4"></h1>
+        <p class="lead" >Total Cases</p>
+    </div>
+<table class="table text-warning table-dark table-striped">
+    <tr>
+        <th>Country</th>
+        <th>Total cases</th>
+        <th>Deaths</th>
+        <th>Recovered</th>
+        <th>Critical</th>
+        <th>Tests</th>
+    </tr>
+    <tr th:each="trackingStat : ${trackingStats}">
+        <td th:text="${trackingStat.country}"></td>
+        <td th:text="${trackingStat.cases}"></td>
+        <td th:text="${trackingStat.deaths}"></td>
+        <td th:text="${trackingStat.todayRecovered}"></td>
+        <td th:text="${trackingStat.critical}"></td>
+        <td th:text="${trackingStat.tests}"></td>
+    </tr>
+</table>
+</div>
+<footer>
+    <div class="text-center p-3 bg-dark">
+        © 2021 Copyright
+        <a class="text-danger" style="text-decoration:none;" href="#">Mahmudul hasan shafin</a>
+    </div>
+</footer>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-/bQdsTh/da6pkI1MST/rWKFNjaCP5gBSY4sEBT38Q/9RBh9AH40zEOg7Hlq2THRZ"
+        crossorigin="anonymous"></script>
+</body>
+
+</html>
