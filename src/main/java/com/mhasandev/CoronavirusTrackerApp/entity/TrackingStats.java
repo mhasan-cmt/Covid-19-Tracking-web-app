@@ -4,7 +4,7 @@ package com.mhasandev.CoronavirusTrackerApp.entity;
 public class TrackingStats {
     long updated;
     String country;
-//    CountryInfo countryInfo;
+    CountryInfo countryInfo;
     int cases;
     int todayCases;
     int deaths;
@@ -29,7 +29,7 @@ public class TrackingStats {
     public TrackingStats() {
     }
 
-    public TrackingStats(long updated, String country,
+    public TrackingStats(long updated, String country,CountryInfo countryInfo,
                          int cases, int todayCases, int deaths, int todayDeaths,
                          int recovered, int todayRecovered, int active, int critical,
                          int casesPerOneMillion, int deathsPerOneMillion, int tests,
@@ -39,7 +39,7 @@ public class TrackingStats {
                          Double criticalPerOneMillion) {
         this.updated = updated;
         this.country = country;
-//        this.countryInfo = countryInfo;
+        this.countryInfo = countryInfo;
         this.cases = cases;
         this.todayCases = todayCases;
         this.deaths = deaths;
@@ -60,6 +60,7 @@ public class TrackingStats {
         this.activePerOneMillion = activePerOneMillion;
         this.recoveredPerOneMillion = recoveredPerOneMillion;
         this.criticalPerOneMillion = criticalPerOneMillion;
+        this.countryInfo=countryInfo;
     }
 
     public long getUpdated() {
@@ -78,13 +79,13 @@ public class TrackingStats {
         this.country = country;
     }
 
-//    public CountryInfo getCountryInfo() {
-//        return countryInfo;
-//    }
+    public CountryInfo getCountryInfo() {
+        return countryInfo;
+    }
 
-//    public void setCountryInfo(CountryInfo countryInfo) {
-//        this.countryInfo = countryInfo;
-//    }
+    public void setCountryInfo(CountryInfo countryInfo) {
+        this.countryInfo = countryInfo;
+    }
 
     public int getCases() {
         return cases;

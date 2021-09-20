@@ -1,7 +1,7 @@
 package com.mhasandev.CoronavirusTrackerApp.entity;
 
 public class CountryInfo {
-    int _id;
+    String _id;
     String iso2;
     String iso3;
     int lat;
@@ -11,7 +11,7 @@ public class CountryInfo {
     public CountryInfo() {
     }
 
-    public CountryInfo(int _id, String iso2, String iso3, int lat, int longitude, String flag) {
+    public CountryInfo(String _id, String iso2, String iso3, int lat, int longitude, String flag) {
         this._id = _id;
         this.iso2 = iso2;
         this.iso3 = iso3;
@@ -20,11 +20,11 @@ public class CountryInfo {
         this.flag = flag;
     }
 
-    public int get_id() {
+    public String get_id() {
         return _id;
     }
 
-    public void set_id(int _id) {
+    public void set_id(String _id) {
         this._id = _id;
     }
 

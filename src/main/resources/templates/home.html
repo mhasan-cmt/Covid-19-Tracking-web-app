@@ -28,6 +28,7 @@
     </div>
 <table class="table text-warning table-dark table-striped">
     <tr>
+        <th>#</th>
         <th>Country</th>
         <th>Total cases</th>
         <th>Deaths</th>
@@ -36,6 +37,9 @@
         <th>Tests</th>
     </tr>
     <tr th:each="trackingStat : ${trackingStats}">
+        <td>
+            <img width="100px" th:src="${trackingStat.countryInfo.flag}"/>
+        </td>
         <td th:text="${trackingStat.country}"></td>
         <td th:text="${trackingStat.cases}"></td>
         <td th:text="${trackingStat.deaths}"></td>

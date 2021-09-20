@@ -40,17 +40,20 @@ public class Services {
         JSONArray jsonArray = new JSONArray(response.body());
         for (int i = 0; i < jsonArray.length(); i++) {
             TrackingStats trackingStats=new TrackingStats();
-//            CountryInfo countryInfo=new CountryInfo();
+            CountryInfo countryInfo=new CountryInfo();
         JSONObject jsonObject = (JSONObject) jsonArray.get(i);
+        JSONObject countryObject=jsonObject.getJSONObject("countryInfo");
         trackingStats.setUpdated(jsonObject.getLong("updated"));
         trackingStats.setCountry(jsonObject.getString("country"));
-//        countryInfo.set_id(jsonObject.getInt("_id"));
-//        countryInfo.setIso2(jsonObject.getString("iso2"));
-//        countryInfo.setIso3(jsonObject.getString("iso3"));
-//        countryInfo.setLat(jsonObject.getInt("lat"));
-//        countryInfo.setLongitude(jsonObject.getInt("long"));
-//        countryInfo.setFlag(jsonObject.getString("flag"));
-//        trackingStats.setCountryInfo(countryInfo);
+
+        countryInfo.set_id(countryObject.get("_id").toString());
+        countryInfo.setIso2(countryObject.get("iso2").toString());
+        countryInfo.setIso3(countryObject.get("iso3").toString());
+        countryInfo.setLat(countryObject.getInt("lat"));
+        countryInfo.setLongitude(countryObject.getInt("long"));
+        countryInfo.setFlag(countryObject.getString("flag"));
+
+        trackingStats.setCountryInfo(countryInfo);
         trackingStats.setCases(jsonObject.getInt("cases"));
         trackingStats.setTodayCases(jsonObject.getInt("todayCases"));
         trackingStats.setDeaths(jsonObject.getInt("deaths"));
